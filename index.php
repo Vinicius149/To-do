@@ -6,7 +6,6 @@ $sql = $dsn->query('SELECT * FROM task');
 
 if ($sql->rowCount() > 0) {
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($tasks);
 }
 
 ?><!DOCTYPE html>
@@ -28,25 +27,30 @@ if ($sql->rowCount() > 0) {
             
         <h1>Things to do</h1>
 
-        <form action="" class="to-do-form">
+        <form action="actions/create.php" method="POST" class="to-do-form">
             <input type="text" name="description" placeholder="Write your task here" required>
             <button type="submit" class="form-button">
                 <i class="fa-solid fa-plus"></i>
             </button>
-        
         </form>
         <div id="tasks">
+            <?php foreach ($tasks as $task): ?>
             <div class="task">
-                <input type="checkbox" name="progress" class="progress">
+                <input 
+                type="checkbox" 
+                name="progress" 
+                class="progress"
+                <?= $task['completed'] ? 'checked' : '' ?>
+                >
                 <p class="task-description">
-                    Tema de casa
+                    <?= $task['description'] ?>
                 </p>
                 
                 <div class="task-actions">
                     <a class="action-button edit-button">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </a>
-                    <a href="" class="action-button delete-button">
+                    <a href="actions/delete.php?id=<?= $task['id']?>" class="action-button delete-button">
                         <i class="fa-regular fa-trash-can"></i>
                     </a>
                 </div>
@@ -58,6 +62,7 @@ if ($sql->rowCount() > 0) {
                     </button>
                 </form>
             </div>
+            <?php endforeach ?>
         </div>
     </div>
 </div>
