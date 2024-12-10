@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<?php
+require_once('database/conn.php');
+$tasks = [];
+
+$sql = $dsn->query('SELECT * FROM task');
+
+if ($sql->rowCount() > 0) {
+    $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($tasks);
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
