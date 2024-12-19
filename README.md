@@ -5,7 +5,7 @@ Projeto criado com o uso de PHP, JS e PostgreSQL.
 Crie e gerencie suas tarefas de forma fácil e dinâmica.
 
 
-<img src="src/images/App.png" width="300"/>
+<img src="src/images/App.png" width="600"/>
 
 
 ## Rodando localmente
