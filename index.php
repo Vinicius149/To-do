@@ -28,7 +28,7 @@ if ($sql->rowCount() > 0) {
         <h1>Things to do</h1>
 
         <form action="actions/create.php" method="POST" class="to-do-form">
-            <input type="text" name="description" placeholder="Write your task here" required>
+            <input type="text" name="description" placeholder="Escreva sua tarefa aqui" required>
             <button type="submit" class="form-button">
                 <i class="fa-solid fa-plus"></i>
             </button>
@@ -61,7 +61,7 @@ if ($sql->rowCount() > 0) {
                     <input 
                     type="text" 
                     name="description" 
-                    placeholder="Edit your task here" 
+                    placeholder="Editar tarefa" 
                     value="<?= $task['description']?>">
                     <button type="submit" class="form-button confirm-button">
                         <i class="fa-solid fa-check"></i>
